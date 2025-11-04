@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useReducer } from "react";
 import { Client, Project, Payment, ID, ProjectStatus } from "../types/models";
 
-/* ==== Example Data ==== */
+//
 const initialClients: Client[] = [
   { id: "c1", name: "Amani Designs", country: "Rwanda", email: "amani@rw.com" },
   { id: "c2", name: "Kivu Tech", country: "Kenya" },
@@ -16,7 +16,7 @@ const initialPayments: Payment[] = [
   { projectId: "p2", amount: 800, date: new Date().toISOString() },
 ];
 
-/* ==== State + Actions ==== */
+//
 interface State {
   clients: Client[];
   projects: Project[];
@@ -74,7 +74,7 @@ function reducer(state: State, action: Action): State {
   }
 }
 
-/* ==== Context ==== */
+//
 const DashboardContext = createContext<{ state: State; dispatch: React.Dispatch<Action> } | null>(null);
 
 export const useDashboard = () => {

@@ -7,7 +7,11 @@ const ClientCard: React.FC<{ client: Client }> = ({ client }) => {
       <h3 className="font-semibold text-lg text-gray-800">{client.name}</h3>
       <p className="text-sm text-gray-500">{client.country}</p>
       <p className="text-sm text-gray-600">
-        {client.email ?? <em className="text-gray-400">No email</em>}
+        {client.email ? (
+          client.email
+        ) : (
+          <div className="text-gray-400">No email</div>
+        )}
       </p>
     </div>
   );

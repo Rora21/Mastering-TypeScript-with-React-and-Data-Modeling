@@ -1,6 +1,6 @@
 import React from "react";
 import { DashboardProvider, useDashboard } from "./context/DashboardContext";
-import ClientCard from "./components/Client.Card";
+import ClientCard from "./components/ClientCard";
 import ProjectList from "./components/ProjectList";
 import DashboardStats from "./components/DashboardStats";
 import PaymentsTable from "./components/PaymentsTable";
