@@ -31,7 +31,7 @@ function Dashboard() {
       </section>
 
       <footer className="mt-6 text-center text-sm text-gray-500">
-        Built with 💛 React + TypeScript
+        &copy; 2025 Freelance Management Dashboard
       </footer>
     </div>
   );
