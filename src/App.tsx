@@ -11,17 +11,10 @@ import { AddClientForm, AddProjectForm } from "./components/AddForms";
 function Dashboard() {
   const { state } = useDashboard();
 
-  if (!state.user) {
-    return <LoginForm />;
-  }
-
   return (
-    <div className="min-h-screen bg-amber-50 p-6">
+    <div className="min-h-screen bg-[#f7f6f2] p-6">
       <header className="mb-6">
-        <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-800">Freelance Management Dashboard</h1>
-          <UserProfile />
-        </div>
+        <h1 className="text-2xl font-bold text-gray-800">Freelance Management Dashboard</h1>
       </header>
 
       <section className="mb-6">

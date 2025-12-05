@@ -21,7 +21,7 @@ const ProjectList: React.FC<{ projects: Project[]; clients: Client[] }> = ({ pro
       {projects.map((p) => {
         const client = findClientById(clients, p.clientId);
         return (
-          <div key={p.id} className="p-4 bg-amber-100 rounded-lg shadow-sm border flex justify-between items-center">
+          <div key={p.id} className="p-4 bg-white rounded-lg shadow-sm border flex justify-between items-center">
             <div>
               <h4 className="font-medium text-gray-800">{p.title}</h4>
               <p className="text-sm text-gray-500">
@@ -36,7 +36,7 @@ const ProjectList: React.FC<{ projects: Project[]; clients: Client[] }> = ({ pro
             {p.paymentStatus === "unpaid" && (
               <button
                 onClick={() => markPaid(p.id)}
-                className="bg-amber-600 text-white px-3 py-1 rounded-md hover:bg-amber-700 text-sm"
+                className="bg-green-600 text-white px-3 py-1 rounded-md hover:bg-green-700 text-sm"
               >
                 Mark Paid
               </button>

@@ -3,7 +3,7 @@ import { Client } from "../types/models";
 
 const ClientCard: React.FC<{ client: Client }> = ({ client }) => {
   return (
-    <div className="p-4 bg-amber-100 rounded-lg shadow-md border border-amber-200 hover:shadow-lg transition">
+    <div className="p-4 bg-white rounded-lg shadow-md border border-gray-100 hover:shadow-lg transition">
       <h3 className="font-semibold text-lg text-gray-800">{client.name}</h3>
       <p className="text-sm text-gray-500">{client.country}</p>
       <p className="text-sm text-gray-600">

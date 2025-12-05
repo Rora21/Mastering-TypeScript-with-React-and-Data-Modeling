@@ -14,8 +14,8 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-amber-50 flex items-center justify-center">
-      <form onSubmit={handleLogin} className="bg-amber-100 p-8 rounded-lg shadow-md w-96">
+    <div className="min-h-screen bg-stone-200 flex items-center justify-center">
+      <form onSubmit={handleLogin} className="bg-stone-100 p-8 rounded-lg shadow-md w-96">
         <h2 className="text-2xl font-bold mb-6 text-center">Login to Dashboard</h2>
         
         <div className="mb-4">

@@ -25,7 +25,7 @@ export const AddClientForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-amber-100 p-4 rounded-lg shadow-sm border space-y-3">
+    <form onSubmit={handleSubmit} className="bg-white p-4 rounded-lg shadow-sm border space-y-3">
       <h3 className="font-semibold">Add New Client</h3>
       <input
         type="text"
@@ -84,7 +84,7 @@ export const AddProjectForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="bg-amber-100 p-4 rounded-lg shadow-sm border space-y-3">
+    <form onSubmit={handleSubmit} className="bg-white p-4 rounded-lg shadow-sm border space-y-3">
       <h3 className="font-semibold">Add New Project</h3>
       <input
         type="text"
@@ -124,7 +124,7 @@ export const AddProjectForm: React.FC = () => {
         <option value="in-progress">In Progress</option>
         <option value="completed">Completed</option>
       </select>
-      <button type="submit" className="w-full bg-amber-600 text-white p-2 rounded hover:bg-amber-700">
+      <button type="submit" className="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700">
         Add Project
       </button>
     </form>

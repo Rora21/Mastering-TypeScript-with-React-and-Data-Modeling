@@ -8,7 +8,7 @@ interface PaymentsTableProps {
 
 const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments, projects }) => {
   return (
-    <div className="bg-amber-100 rounded-lg shadow-sm border p-4">
+    <div className="bg-white rounded-lg shadow-sm border p-4">
       <h3 className="font-semibold text-lg mb-3">Payment Records</h3>
       {payments.length === 0 ? (
         <p className="text-gray-500">No payments recorded</p>
