@@ -1,6 +1,7 @@
 import React from "react";
 import { Project, Client, ID } from "../types/models";
 import { useDashboard } from "../context/DashboardContext";
+import { findClientById } from "../utils/helpers";
 
 const StatusBadge = ({ text, color }: { text: string; color: string }) => (
   <span className={`px-2 py-1 rounded-full text-xs font-medium bg-${color}-100 text-${color}-800`}>
@@ -18,9 +19,9 @@ const ProjectList: React.FC<{ projects: Project[]; clients: Client[] }> = ({ pro
   return (
     <div className="space-y-3">
       {projects.map((p) => {
-        const client = clients.find((c) => c.id === p.clientId);
+        const client = findClientById(clients, p.clientId);
         return (
-          <div key={p.id} className="p-4 bg-white rounded-lg shadow-sm border flex justify-between items-center">
+          <div key={p.id} className="p-4 bg-amber-100 rounded-lg shadow-sm border flex justify-between items-center">
             <div>
               <h4 className="font-medium text-gray-800">{p.title}</h4>
               <p className="text-sm text-gray-500">
@@ -35,7 +36,7 @@ const ProjectList: React.FC<{ projects: Project[]; clients: Client[] }> = ({ pro
             {p.paymentStatus === "unpaid" && (
               <button
                 onClick={() => markPaid(p.id)}
-                className="bg-green-600 text-white px-3 py-1 rounded-md hover:bg-green-700 text-sm"
+                className="bg-amber-600 text-white px-3 py-1 rounded-md hover:bg-amber-700 text-sm"
               >
                 Mark Paid
               </button>

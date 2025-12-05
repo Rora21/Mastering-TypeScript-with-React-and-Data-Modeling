@@ -1,13 +1,13 @@
 import React from "react";
 import { useDashboard } from "../context/DashboardContext";
+import { countProjectsByPayment, calculateTotalRevenue } from "../utils/helpers";
 
 const DashboardStats: React.FC = () => {
   const { state } = useDashboard();
 
   const total = state.projects.length;
-  const paid = state.projects.filter((p) => p.paymentStatus === "paid").length;
-  const unpaid = state.projects.filter((p) => p.paymentStatus === "unpaid").length;
-  const revenue = state.payments.reduce((sum, p) => sum + p.amount, 0);
+  const { paid, unpaid } = countProjectsByPayment(state.projects);
+  const revenue = calculateTotalRevenue(state.payments);
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-3">

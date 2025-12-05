@@ -24,3 +24,10 @@ export interface Payment {
   amount: number;
   date: string; // ISO format
 }
+
+export interface User {
+  id: ID;
+  email: string;
+  name: string;
+  isLoggedIn: boolean;
+}

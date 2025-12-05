@@ -1,31 +1,46 @@
 import React from "react";
 import { Payment, Project } from "../types/models";
 
-const PaymentsTable: React.FC<{ payments: Payment[]; projects: Project[] }> = ({ payments, projects }) => {
+interface PaymentsTableProps {
+  payments: Payment[];
+  projects: Project[];
+}
+
+const PaymentsTable: React.FC<PaymentsTableProps> = ({ payments, projects }) => {
   return (
-    <div className="bg-white rounded-lg shadow-sm p-3 border">
-      <h4 className="font-semibold mb-2 text-gray-700">Payments</h4>
-      <table className="w-full text-sm text-gray-700">
-        <thead>
-          <tr className="text-left border-b">
-            <th>Project</th>
-            <th>Amount</th>
-            <th>Date</th>
-          </tr>
-        </thead>
-        <tbody>
-          {payments.map((p, i) => {
-            const proj = projects.find((x) => x.id === p.projectId);
-            return (
-              <tr key={i} className="border-b hover:bg-gray-50">
-                <td>{proj ? proj.title : "Project not found"}</td>
-                <td>${p.amount}</td>
-                <td>{new Date(p.date).toLocaleDateString()}</td>
+    <div className="bg-amber-100 rounded-lg shadow-sm border p-4">
+      <h3 className="font-semibold text-lg mb-3">Payment Records</h3>
+      {payments.length === 0 ? (
+        <p className="text-gray-500">No payments recorded</p>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="border-b">
+                <th className="text-left py-2">Project</th>
+                <th className="text-left py-2">Amount</th>
+                <th className="text-left py-2">Date</th>
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
+            </thead>
+            <tbody>
+              {payments.map((payment, index) => {
+                const project = projects.find(p => p.id === payment.projectId);
+                return (
+                  <tr key={index} className="border-b">
+                    <td className="py-2">
+                      {project ? project.title : "Project not found"}
+                    </td>
+                    <td className="py-2 font-medium">${payment.amount}</td>
+                    <td className="py-2 text-gray-600">
+                      {new Date(payment.date).toLocaleDateString()}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 };

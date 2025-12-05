@@ -1,10 +1,10 @@
 import React, { createContext, useContext, useReducer } from "react";
-import { Client, Project, Payment, ID, ProjectStatus } from "../types/models";
+import { Client, Project, Payment, ID, ProjectStatus, User } from "../types/models";
 
 //
 const initialClients: Client[] = [
-  { id: "c1", name: "Amani Designs", country: "Rwanda", email: "amani@rw.com" },
-  { id: "c2", name: "Kivu Tech", country: "Kenya" },
+  { id: "c1", name: "Rora books", country: "Rwanda", email: "rora@gmail.com" },
+  { id: "c2", name: "Ali Tech", country: "Rwanda" , email: "ali@gmail.com"} ,
 ];
 
 const initialProjects: Project[] = [
@@ -18,12 +18,15 @@ const initialPayments: Payment[] = [
 
 //
 interface State {
+  user: User | null;
   clients: Client[];
   projects: Project[];
   payments: Payment[];
 }
 
 export type Action =
+  | { type: "LOGIN"; payload: { email: string; name: string } }
+  | { type: "LOGOUT" }
   | { type: "MARK_PROJECT_PAID"; payload: { projectId: ID } }
   | { type: "ADD_PAYMENT"; payload: Payment }
   | { type: "ADD_CLIENT"; payload: Client }
@@ -31,6 +34,7 @@ export type Action =
   | { type: "UPDATE_PROJECT_STATUS"; payload: { projectId: ID; status: ProjectStatus } };
 
 const initialState: State = {
+  user: null,
   clients: initialClients,
   projects: initialProjects,
   payments: initialPayments,
@@ -38,6 +42,20 @@ const initialState: State = {
 
 function reducer(state: State, action: Action): State {
   switch (action.type) {
+    case "LOGIN":
+      return {
+        ...state,
+        user: {
+          id: Date.now().toString(),
+          email: action.payload.email,
+          name: action.payload.name,
+          isLoggedIn: true,
+        },
+      };
+
+    case "LOGOUT":
+      return { ...state, user: null };
+
     case "MARK_PROJECT_PAID":
       return {
         ...state,
