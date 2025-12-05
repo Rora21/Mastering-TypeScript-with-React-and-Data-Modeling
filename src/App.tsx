@@ -1,11 +1,8 @@
-import React from "react";
 import { DashboardProvider, useDashboard } from "./context/DashboardContext";
 import ClientCard from "./components/ClientCard";
 import ProjectList from "./components/ProjectList";
 import DashboardStats from "./components/DashboardStats";
 import PaymentsTable from "./components/PaymentsTable";
-import LoginForm from "./components/LoginForm";
-import UserProfile from "./components/UserProfile";
 import { AddClientForm, AddProjectForm } from "./components/AddForms";
 
 function Dashboard() {
